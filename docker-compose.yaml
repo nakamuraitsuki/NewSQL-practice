@@ -3,7 +3,8 @@
 services:
   # cf. https://www.cockroachlabs.com/docs/v26.2/start-a-local-cluster-in-docker-linux#step-3-start-the-cluster
   roach1:
-    image: cockroachdb/cockroach:v26.2.0
+    image: cockroachdb/cockroach:latest-v26.1
+    container_name: roach1
     hostname: roach1
     networks:
       - roachnet
@@ -22,7 +23,8 @@ services:
       - roach1:/cockroach/cockroach-data
   
   roach2:
-    image: cockroachdb/cockroach:v26.2.0
+    image: cockroachdb/cockroach:latest-v26.1
+    container_name: roach2
     hostname: roach2
     networks:
       - roachnet
@@ -41,7 +43,8 @@ services:
       - roach2:/cockroach/cockroach-data
 
   roach3:
-    image: cockroachdb/cockroach:v26.2.0
+    image: cockroachdb/cockroach:latest-v26.1
+    container_name: roach3
     hostname: roach3
     networks:
       - roachnet
@@ -60,7 +63,7 @@ services:
       - roach3:/cockroach/cockroach-data
   
   init:
-    image: cockroachdb/cockroach:v26.2.0
+    image: cockroachdb/cockroach:latest-v26.1
     container_name: roach_init
     networks:
       - roachnet
