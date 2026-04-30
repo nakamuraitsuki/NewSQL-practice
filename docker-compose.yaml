@@ -41,6 +41,8 @@ services:
       - 8081:8081
     volumes:
       - roach2:/cockroach/cockroach-data
+    depends_on:
+      - roach1
 
   roach3:
     image: cockroachdb/cockroach:latest-v26.1
@@ -61,6 +63,8 @@ services:
       - 8082:8082
     volumes:
       - roach3:/cockroach/cockroach-data
+    depends_on:
+      - roach2
   
   init:
     image: cockroachdb/cockroach:latest-v26.1
